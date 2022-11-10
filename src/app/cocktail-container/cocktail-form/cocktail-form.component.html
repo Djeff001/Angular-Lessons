@@ -11,6 +11,26 @@
     <label>Description</label>
     <input formControlName="description" type="text" />
   </div>
+  <hr />
+  <button type="button" class="btn btn-primary" (click)="addIngredient()">
+    Ajouter ingredient
+  </button>
+  <hr />
+  <div formArrayName="ingredients">
+    <div
+      [formGroupName]="index"
+      *ngFor="let ingredient of ingredients.controls; let index = index"
+    >
+      <div class="form-group d-flex flex-column">
+        <label>Nom</label>
+        <input formControlName="name" type="text" />
+      </div>
+      <div class="form-group d-flex flex-column">
+        <label>Quantity</label>
+        <input formControlName="quantity" type="number" />
+      </div>
+    </div>
+  </div>
   <div class="actions">
     <button [disabled]="cocktailForm.invalid" class="btn btn-primary">
       Valider
