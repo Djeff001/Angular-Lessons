@@ -17,6 +17,17 @@ a {
   color: inherit;
 }
 
+input{
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 8px 15px;
+}
+
+button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 :root {
   --font-family: "Roboto", sans-serif;
   --primary: #546de5;
@@ -75,7 +86,13 @@ body {
 .flex-50 {
   flex: 1 1 50%;
 }
-…
+
+// utils
+
+.p-10 {
+  padding: 10px;
+}
+
 .p-20 {
   padding: 20px;
 }
@@ -86,16 +103,6 @@ body {
 
 .pl-10 {
   padding-left: 10px;
-}
-
-// utils
-
-.p-10 {
-  padding: 10px;
-}
-
-.p-20 {
-  padding: 20px;
 }
 
 .m-10 {
@@ -111,18 +118,36 @@ body {
 }
 
 // theme
+.list-primary-action {
+  li {
+    &:hover {
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+    }
+    transition: background-color 0.4s;
+  }
+}
+
+.badge {
+  background-color: var(--secondary);
+  border-radius: 3px;
+  padding: 2px 5px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.active {
+  background-color: var(--secondary);
+  color: white;
+}
 
 .list-primary {
   li {
     padding: 10px 15px;
     border: 1px solid var(--lightgray);
     border-top: 0;
-    &:hover {
-      background-color: var(--primary);
-      color: white;
-      cursor: pointer;
-    }
-    transition: all 0.4s;
   }
   li:first-child {
     border-top: 1px solid var(--lightgray);
@@ -149,6 +174,9 @@ body {
       background-color: var(--secondary);
     }
     transition: background-color 0.4s;
+  }
+  &-secondary {
+    background-color: #ddd;
   }
 }
 
