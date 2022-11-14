@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,13 +15,16 @@ import { SelectedDirective } from './shared/directives/selected.directive';
 
 import { APP_ROUTES } from './app.routes';
 import { CocktailFormComponent } from './cocktail-container/cocktail-form/cocktail-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './shared/pipe/filter.pipe';
 
 @NgModule({
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
@@ -32,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PanierContainerComponent,
     IngredientListComponent,
     CocktailFormComponent,
+    FilterPipe,
   ],
   bootstrap: [AppComponent],
 })
