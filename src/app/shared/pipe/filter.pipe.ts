@@ -5,11 +5,9 @@ import { Cocktail } from '../interfaces/cocktail.interface';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  transform(cocktails: Cocktail[] | null, search: string): Cocktail[] | null {
-    if (cocktails)
-      return cocktails.filter((cocktail) => {
-        cocktail.name.toLowerCase().includes(search.toLowerCase());
-      });
-    return null;
+  transform(cocktails: Cocktail[], search: string): Cocktail[] | null {
+    return cocktails.filter((cocktail) =>
+      cocktail.name.toLowerCase().includes(search.toLowerCase())
+    );
   }
 }
